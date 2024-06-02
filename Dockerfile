@@ -5,9 +5,9 @@ FROM jlesage/baseimage-gui:ubuntu-18.04-v4 AS base
 #RUN install-glibc
 
 # System config
-RUN apk --no-cache add ca-certificates wget curl && update-ca-certificates && \
-    add-pkg \
-		openjdk21-jre \
+RUN apt install ca-certificates wget curl && update-ca-certificates && \
+    apt install \
+		openjdk-17-jre \
 		gtk+3.0 \
 		dbus-x11 \
 		dbus \
