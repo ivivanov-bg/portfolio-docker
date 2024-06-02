@@ -5,7 +5,7 @@ FROM jlesage/baseimage-gui:ubuntu-22.04-v4 AS base
 #RUN install-glibc
 
 # System config
-RUN apt update && apt install \
+RUN apt update && apt install -y \
 		openjdk-21-jre \
 		dbus-x11 \
 		dbus
