@@ -18,6 +18,7 @@ FROM base as app
 
 # ENV vars
 ARG VERSION
+ARG TARGETPLATFORM
 RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then export ARCHITECTURE=amd64; elif [ "$TARGETPLATFORM" = "linux/arm/v7" ]; then export ARCHITECTURE=arm; elif [ "$TARGETPLATFORM" = "linux/arm64" ]; then export ARCHITECTURE=aarch64; else export ARCHITECTURE=amd64; fi 
 
 ENV ARCHITECTURE $ARCHITECTURE
