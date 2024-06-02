@@ -1,0 +1,28 @@
+name: Docker Image CI
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  build-docker:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build image & Publish to Registry
+      env:
+        SHA8: ${GITHUB_SHA::8}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        # <USER>/<REPO>/<DOCKER-IMAGE>
+        name: dtpnk/docker-portfolio/docker-portfolio
+        username: ${{ secrets.GH_USER }}
+        password: ${{ secrets.GH_TOKEN }}
+        registry: "ghcr.io"
+        tags: "latest"
+
+
