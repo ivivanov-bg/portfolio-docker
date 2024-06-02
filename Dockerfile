@@ -5,7 +5,7 @@ FROM jlesage/baseimage-gui:ubuntu-18.04-v4 AS base
 #RUN install-glibc
 
 # System config
-RUN apt install ca-certificates wget curl && update-ca-certificates && \
+RUN update-ca-certificates && \
     apt install \
 		openjdk-17-jre \
 		gtk+3.0 \
