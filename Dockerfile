@@ -6,11 +6,9 @@ FROM jlesage/baseimage-gui:ubuntu-22.04-v4 AS base
 
 # System config
 RUN apt update && apt install -y \
+                curl wget \
 		openjdk-21-jre \
-		dbus-x11 \
-		dbus
-
-
+		dbus dbus-x11
 
 FROM base as app
 
