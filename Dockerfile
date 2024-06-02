@@ -1,6 +1,3 @@
-ARG ARCHITECTURE=x86_64
-ENV ARCHITECTURE $ARCHITECTURE
-
 # Pull base image.
 FROM jlesage/baseimage-gui:alpine-3.19-v4 AS base
 
@@ -21,7 +18,11 @@ FROM base as app
 
 # ENV vars
 ARG VERSION
+ARG ARCHITECTURE=x86_64
+
+ENV ARCHITECTURE $ARCHITECTURE
 ENV APP_NAME=${APP_NAME:-"Portfolio Performance"}
+
 
 # Download & install App
 ## if $VERSION is not set via --build-arg -> fetch latest PP version
