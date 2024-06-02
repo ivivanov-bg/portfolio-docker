@@ -6,7 +6,7 @@ RUN install-glibc
 # System config
 RUN apk --no-cache add ca-certificates wget curl && update-ca-certificates && \
     add-pkg \
-		openjdk-21-jdk \
+		openjdk21-jre \
 		gtk+3.0 \
 		dbus-x11 \
 		dbus \
