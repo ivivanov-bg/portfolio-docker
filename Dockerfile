@@ -6,11 +6,9 @@ FROM jlesage/baseimage-gui:ubuntu-22.04-v4 AS base
 
 # System config
 RUN apt update && apt install \
-		openjdk-17-jre \
-		gtk+3.0 \
+		openjdk-21-jre \
 		dbus-x11 \
-		dbus \
-		webkit2gtk
+		dbus
 
 
 
