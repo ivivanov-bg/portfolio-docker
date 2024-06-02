@@ -1,3 +1,6 @@
+ARG ARCHITECTURE=x86_64
+ENV ARCHITECTURE $ARCHITECTURE
+
 # Pull base image.
 FROM jlesage/baseimage-gui:alpine-3.19-v4 AS base
 
@@ -23,9 +26,9 @@ ENV APP_NAME=${APP_NAME:-"Portfolio Performance"}
 # Download & install App
 ## if $VERSION is not set via --build-arg -> fetch latest PP version
 RUN	export VERSION=${VERSION:-$(curl --silent "https://api.github.com/repos/portfolio-performance/portfolio/releases/latest" |grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')} && \
-	cd /opt && wget https://github.com/portfolio-performance/portfolio/releases/download/${VERSION}/PortfolioPerformance-${VERSION}-linux.gtk.x86_64.tar.gz && \
-	tar xvzf PortfolioPerformance-${VERSION}-linux.gtk.x86_64.tar.gz && \
-	rm PortfolioPerformance-${VERSION}-linux.gtk.x86_64.tar.gz
+	cd /opt && wget https://github.com/portfolio-performance/portfolio/releases/download/${VERSION}/PortfolioPerformance-${VERSION}-linux.gtk.${ARCHITECTURE}.tar.gz && \
+	tar xvzf PortfolioPerformance-${VERSION}-linux.gtk.${ARCHITECTURE}.tar.gz && \
+	rm PortfolioPerformance-${VERSION}-linux.gtk.${ARCHITECTURE}.tar.gz
 
 # ENV vars
 ARG LOCALE
