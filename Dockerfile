@@ -1,10 +1,12 @@
 # Pull base image.
-FROM jlesage/baseimage-gui:alpine-3.18-glibc-v3 AS base
+FROM jlesage/baseimage-gui:alpine-3.19-v4 AS base
+
+RUN install-glibc
 
 # System config
 RUN apk --no-cache add ca-certificates wget curl && update-ca-certificates && \
     add-pkg \
-		openjdk-21-jre \
+		openjdk-21-jdk \
 		gtk+3.0 \
 		dbus-x11 \
 		dbus \
