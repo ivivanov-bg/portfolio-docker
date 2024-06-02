@@ -1,5 +1,6 @@
 # Pull base image.
-FROM jlesage/baseimage-gui:alpine-3.19-v4 AS base
+#FROM jlesage/baseimage-gui:alpine-3.19-v4 AS base
+FROM jlesage/baseimage-gui:ubuntu-18.04-v4 AS base
 
 RUN install-glibc
 
