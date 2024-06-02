@@ -29,8 +29,8 @@ ENV APP_NAME=${APP_NAME:-"Portfolio Performance"}
 ## if $VERSION is not set via --build-arg -> fetch latest PP version
 RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then ARCHITECTURE=x86_64; elif [ "$TARGETPLATFORM" = "linux/arm/v7" ]; then ARCHITECTURE=arm; elif [ "$TARGETPLATFORM" = "linux/arm64" ]; then ARCHITECTURE=aarch64; else ARCHITECTURE=amd64; fi \
     && export VERSION=${VERSION:-$(curl --silent "https://api.github.com/repos/portfolio-performance/portfolio/releases/latest" |grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')} \
-    && cd /opt && wget https://github.com/portfolio-performance/portfolio/releases/download/${VERSION}/PortfolioPerformance-${VERSION}-linux.gtk.${ARCHITECTURE}.tar.gz \
-    && tar xvzf PortfolioPerformance-${VERSION}-linux.gtk.${ARCHITECTURE}.tar.gz \
+    && cd /opt && wget -q https://github.com/portfolio-performance/portfolio/releases/download/${VERSION}/PortfolioPerformance-${VERSION}-linux.gtk.${ARCHITECTURE}.tar.gz \
+    && tar xzf PortfolioPerformance-${VERSION}-linux.gtk.${ARCHITECTURE}.tar.gz \
     && rm PortfolioPerformance-${VERSION}-linux.gtk.${ARCHITECTURE}.tar.gz
 
 # ENV vars
