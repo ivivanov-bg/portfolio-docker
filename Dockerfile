@@ -1,5 +1,6 @@
 # Pull base image.
 FROM jlesage/baseimage-gui:alpine-3.19-v4 AS base
+ARG TARGETPLATFORM
 
 RUN install-glibc
 
