@@ -2,7 +2,7 @@
 #FROM jlesage/baseimage-gui:alpine-3.19-v4 AS base
 FROM jlesage/baseimage-gui:ubuntu-18.04-v4 AS base
 
-RUN install-glibc
+#RUN install-glibc
 
 # System config
 RUN apk --no-cache add ca-certificates wget curl && update-ca-certificates && \
