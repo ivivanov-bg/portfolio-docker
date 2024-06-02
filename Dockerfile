@@ -7,7 +7,7 @@ FROM jlesage/baseimage-gui:ubuntu-22.04-v4 AS base
 # System config
 RUN apt update && apt install -y \
                 curl wget \
-		libgtk-3.0 \
+		libgtk-3-bin \
 		openjdk-21-jre \
 		dbus dbus-x11
 
